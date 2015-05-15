@@ -15,24 +15,6 @@ def sanitize(s):
     s = re.sub(r"\s+", '_', s)
     return s
 
-# This will assume that the outer keys will be the javascript variable names. Ex:
-# {
-#     'rootOne' : {
-#         'aKey' : 100
-#     },
-#     'rootVar' : {
-#         'anotherKey' : 'another value'
-#     }
-# }
-# will appear like this in the JS:
-# var rootOne =
-# { 
-#   'aKey' : 100
-# };
-# var rootVar = 
-# {
-#     'anotherKey' : 'another value'
-# };
 def writeDictToJS(jsonDict, jsPath):
     fh_jsfile = open(jsPath, 'w')
     for outerKey in jsonDict:
